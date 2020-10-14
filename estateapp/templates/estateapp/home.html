@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="jumbotron">
+<h2>Welcome to Real Estate. Select Home for various Home Details.</h2>
+    {% for homes in home %}
+    <a href="{% url 'detail' homes.id %}">{{homes.house_type}} at {{homes.address}}</a><br><hr>
+    {% endfor %}
+</div>
+{% endblock %}

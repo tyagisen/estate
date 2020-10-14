@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<img src="{{home.image.url}}" class="d-block w-100" alt="">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="mt-5">{{home.house_type}}</h2>
+            <p class="">Ward No: <b>{{home.street_no}}, {{home.address}}</b></p>
+            <p style="font-size:20px; font-weight: bold;">$ {{home.price}}/mo</p>
+
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+    <article class="media content-section mt-5">
+        <div class="article-metadata">
+            {% for feature in home.features.all %}
+            {% if feature.total_feature == 0 %}
+            {{ pass }}
+            {% else %}
+            <div class="bg-light features">
+                <p style="font-size:20px;">{{feature}}: {{feature.total_feature}}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <h3>Description</h3>
+            <p>{{home.description}}</p>
+        </div>
+    </article>
+    <hr>
+
+    <h3>Property Details</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Property Id: <b>{{home.id}}</b></p>
+            <p>Price: <b>{{home.price}}</b></p>
+            <p>Property Size: <b>{{home.property_size}}</b></p>
+            <p>Year Built: <b>{{home.date_built|date:"F d, Y" }}</b></p>
+            <p> Property Type: <b>{{home.property_type}}</b></p>
+        </div>
+        <div class="col offset-1">
+            <h4>Features</h4>
+            {% for feature in home.features.all %}
+            <p>{{feature}}: <b>{{feature.total_feature}}</b></p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <h3>Property Attachments</h3>
+                <hr>
+            </div>
+            <a href="{{home.file.url}}" download="{{home.file.url}}"><i class="fas fa-file-download"
+                                                                        style="font-size:30px;"></i><br>Download
+                Property Detail</a>
+        </div>
+    </article>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <h3>Location</h3>
+            <hr>
+            <div class="article-metadata">
+                <div class="container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14261.441503993128!2d87.26498158582484!3d26.66895453304231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6c70c1805b57%3A0xdac90a87f6868df6!2siTsoch%20(IT%20Services%20and%20Media%20Agency)!5e0!3m2!1sen!2snp!4v1601776965115!5m2!1sen!2snp"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false"
+                            tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+{% endblock content %}

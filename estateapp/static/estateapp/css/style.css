@@ -1,0 +1,22 @@
+body {
+  background: #fafafa;
+  color: #333333;
+
+}
+.bg-steel {
+  background-color: #5f788a;
+}
+h2, h3, h5{
+    color: #444444;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.features: hover{
+    color:red;
+}
