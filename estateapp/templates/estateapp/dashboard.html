@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block 'sidebar' %}
+{% include 'component/adsidebar.html'  %}
+{% endblock %}
+
+
 
 {% block title %}
 Dashboard
@@ -11,7 +16,3 @@ Dashboard
 {% block content %}
 <h2>Dashboard Heres</h2>
 {% endblock %}
-{% block 'body' %}
-{% include 'component/adsidebar.html'  %}
-{% endblock %}
-
