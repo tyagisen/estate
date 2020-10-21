@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse,  HttpResponse, redirect, get_object_or_404
 from .models import *
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, RedirectView,TemplateView
 
 
 class HomeListView(ListView):
@@ -12,3 +12,9 @@ class HomeListView(ListView):
 class HomeDetailView(DetailView):
     model = Home
     context_object_name = 'home'
+
+class Dashboard(TemplateView):
+    # model = Home
+    context_object_name= 'dashboard'
+    template_name = 'estateapp/dashboard.html'
+
