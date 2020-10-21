@@ -17,6 +17,35 @@
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
 
+<!--  &lt;!&ndash; CSS birat-->
+<!--	================================================== &ndash;&gt;-->
+<!--	&lt;!&ndash; Base + Vendors CSS &ndash;&gt;-->
+<!--	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'css/fonts/font-awesome/css/font-awesome.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'css/fonts/entypo/css/entypo.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'vendor/owl-carousel/owl.carousel.css' %}" media="screen">-->
+<!--	<link rel="stylesheet" href="{% static 'vendor/owl-carousel/owl.theme.css' %}" media="screen">-->
+<!--	<link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" media="screen">-->
+
+<!--	&lt;!&ndash; Theme CSS&ndash;&gt;-->
+<!--	<link rel="stylesheet" href="{% static 'css/theme.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'css/theme-elements.css' %}">-->
+<!--	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">-->
+
+
+
+<!--	&lt;!&ndash; Head Libs &ndash;&gt;-->
+<!--	<script src="{% static 'vendor/modernizr.js' %}"></script>-->
+
+
+<!--	&lt;!&ndash; Favicons-->
+<!--	================================================== &ndash;&gt;-->
+<!--	<link rel="shortcut icon" href="images/favicons/favicon.ico">-->
+<!--	<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/favicon-120.png">-->
+<!--	<link rel="apple-touch-icon" sizes="152x152" href="images/favicons/favicon-152.png">-->
+
+
+<!--  &lt;!&ndash;&#45;&#45; css end birat &ndash;&gt;-->
 
     <title>{% block title %}{% endblock title %}</title>
 </head>
@@ -26,6 +55,10 @@
 {% block content %}
 {% endblock content %}
 
+
+
+{% block 'body' %}
+{% endblock   %}
 <!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-4 mb-5">
 
@@ -84,5 +117,29 @@
         crossorigin="anonymous"></script>
 <script src="{% static 'estateapp/js/all.min.js' %}"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+
+
+<!--	&lt;!&ndash; Javascript Files birat add-->
+<!--	================================================== &ndash;&gt;-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery-1.11.0.min.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery-migrate-1.2.1.min.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/bootstrap.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.flexnav.min.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.hoverIntent.minified.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.flickrfeed.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/magnific-popup/jquery.magnific-popup.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/owl-carousel/owl.carousel.min.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.fitvids.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.appear.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.stellar.min.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.countTo.js' %}"></script>-->
+
+<!--	&lt;!&ndash; Newsletter Form &ndash;&gt;-->
+<!--	<script src="{% static 'estateapp/bestateapp/vendor/jquery.validate.js' %}"></script>-->
+<!--	<script src="{% static 'estateapp/bestateapp/js/newsletter.js' %}"></script>-->
+
+<!--	<script src="{% static 'estateapp/bestateapp/js/custom.js' %}"></script>-->
+<!--&lt;!&ndash;-&#45;&#45; js birat&ndash;&gt;-->
+
 </body>
 </html>
