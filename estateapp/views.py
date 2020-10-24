@@ -17,7 +17,7 @@ class HomeDetailView(DetailView):
 class Dashboard(TemplateView):
     # model = Home
     context_object_name= 'dashboard'
-    template_name = 'estateapp/dashboard.html'
+    template_name = '../templates/dashboard.html'
 
 class Login(TemplateView):
     # model = Home
@@ -40,3 +40,8 @@ class Login(TemplateView):
         else:
             messages.add_message(request,messages.ERROR,"Login Credentials doesnt match")
             return redirect('home')
+
+class AddHomeFeature(TemplateView):
+    # model = Home
+    context_object_name = 'add_home_feature'
+    template_name = 'estateapp/add_home_feature.html'
