@@ -3,7 +3,7 @@ from .models import *
 from django.views.generic import ListView, DetailView, RedirectView,TemplateView
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 class HomeListView(ListView):
     model = Home
     context_object_name = 'home'
@@ -14,10 +14,12 @@ class HomeDetailView(DetailView):
     model = Home
     context_object_name = 'home'
 
-class Dashboard(TemplateView):
+class Dashboard(LoginRequiredMixin,TemplateView):
     # model = Home
     context_object_name= 'dashboard'
     template_name = '../templates/dashboard.html'
+    login_url='/login'
+
 
 class Login(TemplateView):
     # model = Home
@@ -39,7 +41,7 @@ class Login(TemplateView):
             return redirect('dashboard')
         else:
             messages.add_message(request,messages.ERROR,"Login Credentials doesnt match")
-            return redirect('home')
+            return redirect('login')
 
 class AddHomeFeature(TemplateView):
     # model = Home
