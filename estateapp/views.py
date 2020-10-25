@@ -14,10 +14,12 @@ class HomeDetailView(DetailView):
     model = Home
     context_object_name = 'home'
 
+# For the dashboard view
 class Dashboard(LoginRequiredMixin,TemplateView):
     # model = Home
     context_object_name= 'dashboard'
     template_name = '../templates/dashboard.html'
+    # If the user not login then redirect to down url
     login_url='/login'
 
 
