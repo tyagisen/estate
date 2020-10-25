@@ -36,13 +36,22 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">More Details:</h6>
-                        <a class="collapse-item" href="{% url 'add_home_feature' %}">Home Feature</a>
-            <a class="collapse-item" href="{% url 'home' %}">Home</a>
-                        <a class="collapse-item" href="{% url 'home' %}">User Profile</a>
+            <h3 class="collapse-header">Home Feature:</h3>
+                        <a class="collapse-item" href="{% url 'add_home_feature' %}">Add Home Feature</a>
+            <a class="collapse-item" href="{% url 'home' %}">View Home Feature</a>
+
+            <h3 class="collapse-header">Home:</h3>
+                        <a class="collapse-item" href="{% url 'home' %}">Add Home</a>
+            <a class="collapse-item" href="{% url 'home' %}">View Home Details</a>
+
+             <h3 class="collapse-header">User Profile:</h3>
+                        <a class="collapse-item" href="{% url 'home' %}">Add Userprofile</a>
+            <a class="collapse-item" href="{% url 'home' %}">View Userprofile</a>
+
 
           </div>
         </div>
+
       </li>
 
       <!-- Nav Item - Employees Collapse Menu -->

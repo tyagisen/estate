@@ -1,8 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'master.html' %}
 
- {% block 'sidebar' %}
+{% block 'sidebar' %}
   {% include 'component/adsidebar.html' %}
  {% endblock %}
+
+{% block 'navbar' %}
+  {% include 'navbar.html' %}
+ {% endblock %}
+
+{% block title %}
+  Add Home Feature
+ {% endblock title %}
+
 
 {% block 'body' %}
 <h1>Add Home Feature</h1>

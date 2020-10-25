@@ -22,7 +22,7 @@ class Dashboard(LoginRequiredMixin,TemplateView):
     # If the user not login then redirect to down url
     login_url='/login'
 
-
+# For the Login Authentication
 class Login(TemplateView):
     # model = Home
     context_object_name= 'login'
@@ -44,6 +44,7 @@ class Login(TemplateView):
         else:
             messages.add_message(request,messages.ERROR,"Login Credentials doesnt match")
             return redirect('login')
+
 
 class AddHomeFeature(TemplateView):
     # model = Home
