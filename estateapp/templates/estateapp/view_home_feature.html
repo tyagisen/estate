@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+
+{% block 'sidebar' %}
+  {% include 'component/adsidebar.html' %}
+ {% endblock %}
+
+{% block 'navbar' %}
+  {% include 'navbar.html' %}
+ {% endblock %}
+
+{% block title %}
+  Add Home Feature
+ {% endblock title %}
+
+
+{% block 'body' %}
+<h1>View Home Feature</h1>
+<table border="1px">
+    <thead>
+    <th>
+        Feature Name
+    </th>
+    <th>Total Feature</th>
+        <th>Action</th>
+
+    </thead>
+    {% for h in homefeature %}
+    <tr>
+        <td>{{ h.feature_name }}</td>
+    <td>{{ h.total_feature }}</td>
+        <td>  <a href="" class="btn btn-success">Update</a>
+                   <a href="" class="btn btn-danger">Delete</a>
+    </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -36,9 +36,6 @@ class Home(models.Model):
     file = models.FileField(upload_to='property')
     features = models.ManyToManyField(HomeFeatures)
 
-
-
-
     def __str__(self):
         return self.address
 

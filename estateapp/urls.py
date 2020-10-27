@@ -8,5 +8,5 @@ urlpatterns = [
     path('dashboard/', views.Dashboard.as_view(), name='dashboard'),
     path('login/', views.Login.as_view(), name='login'),
     path('home_feature/', views.AddHomeFeature.as_view(), name='add_home_feature'),
-
+    path('view_feature/', views.ViewHomeFeature.as_view(), name='view_home_feature'),
 ]

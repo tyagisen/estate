@@ -4,6 +4,9 @@ from django.views.generic import ListView, DetailView, RedirectView,TemplateView
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import HomeFeaturesForm
+from estateapp.models import HomeFeatures as HomeFeaturesModel
+
 class HomeListView(ListView):
     model = Home
     context_object_name = 'home'
@@ -46,7 +49,37 @@ class Login(TemplateView):
             return redirect('login')
 
 
-class AddHomeFeature(TemplateView):
+class AddHomeFeature(LoginRequiredMixin,TemplateView):
     # model = Home
     context_object_name = 'add_home_feature'
     template_name = 'estateapp/add_home_feature.html'
+    login_url = '/login'
+
+    def get(self, request):
+        context = {
+            'form': HomeFeaturesForm(),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = HomeFeaturesForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.user_id = request.user.id
+            data.save()
+            messages.add_message(request, messages.SUCCESS, "Saved Successfully")
+            return redirect('dashboard')
+        else:
+            messages.add_message(request, messages.ERROR, "Sooryy error occured")
+            return redirect('dashboard')
+
+class ViewHomeFeature(LoginRequiredMixin,TemplateView):
+    context_object_name = 'view_home_feature'
+    template_name = 'estateapp/view_home_feature.html'
+    login_url = '/login'
+
+    def get(self,request):
+        context={
+            'homefeature': HomeFeaturesModel.objects.all()
+        }
+        return render(request, self.template_name, context)
