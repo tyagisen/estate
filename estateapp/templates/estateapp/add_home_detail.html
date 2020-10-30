@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+
+{% block 'sidebar' %}
+  {% include 'component/adsidebar.html' %}
+ {% endblock %}
+
+{% block 'navbar' %}
+  {% include 'navbar.html' %}
+ {% endblock %}
+
+{% block title %}
+  Add Home Feature
+ {% endblock title %}
+
+
+{% block 'body' %}
+<h1>Add Home Details</h1>
+<form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+    {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+{% endblock %}

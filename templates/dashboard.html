@@ -3,6 +3,7 @@
 {% block 'sidebar' %}
 {% include 'component/adsidebar.html'  %}
 {% endblock %}
+
 {% block 'navbar' %}
   {% include 'navbar.html' %}
  {% endblock %}
@@ -17,4 +18,6 @@ Dashboard
 
 {% block 'body' %}
 <h2>Dashboard Heres</h2>
+{% include 'message.html' %}
+
 {% endblock %}

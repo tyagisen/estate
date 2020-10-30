@@ -4,8 +4,9 @@ from django.views.generic import ListView, DetailView, RedirectView,TemplateView
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import HomeFeaturesForm
+from .forms import HomeFeaturesForm,HomeDForm
 from estateapp.models import HomeFeatures as HomeFeaturesModel
+from .models import  Home as HomeModel
 
 class HomeListView(ListView):
     model = Home
@@ -83,3 +84,27 @@ class ViewHomeFeature(LoginRequiredMixin,TemplateView):
             'homefeature': HomeFeaturesModel.objects.all()
         }
         return render(request, self.template_name, context)
+
+class AddHomeDetail(LoginRequiredMixin,TemplateView):
+    # model = Home
+    context_object_name = 'add_home_detail'
+    template_name = 'estateapp/add_home_detail.html'
+    login_url = '/login'
+
+    def get(self, request):
+        context = {
+            'form': HomeDForm(),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = HomeDForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.user_id = request.user.id
+            data.save()
+            messages.add_message(request, messages.SUCCESS, "Saved Successfully")
+            return redirect('dashboard')
+        else:
+            messages.add_message(request, messages.ERROR, "Sorry error occured")
+            return redirect('dashboard')
