@@ -15,6 +15,7 @@
 
 {% block 'body' %}
 <h1>View Home Feature</h1>
+{% include 'message.html' %}
 <table border="1px">
     <thead>
     <th>
@@ -29,7 +30,7 @@
         <td>{{ h.feature_name }}</td>
     <td>{{ h.total_feature }}</td>
         <td>  <a href="" class="btn btn-success">Update</a>
-                   <a href="" class="btn btn-danger">Delete</a>
+                   <a href="{% url 'delete_home_feature' h.id %}" class="btn btn-danger">Delete</a>
     </td>
     </tr>
     {% endfor %}

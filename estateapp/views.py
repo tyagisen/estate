@@ -85,6 +85,12 @@ class ViewHomeFeature(LoginRequiredMixin,TemplateView):
         }
         return render(request, self.template_name, context)
 
+def DeleteHomeFeature(request,id):
+    d=HomeFeaturesModel.objects.get(pk=id)
+    d.delete()
+    messages.add_message(request, messages.SUCCESS, "Successfully Deleted")
+    return redirect('view_home_feature')
+
 class AddHomeDetail(LoginRequiredMixin,TemplateView):
     # model = Home
     context_object_name = 'add_home_detail'
