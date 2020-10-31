@@ -1,0 +1,28 @@
+{% extends 'master.html' %}
+
+{% block 'sidebar' %}
+  {% include 'component/adsidebar.html' %}
+ {% endblock %}
+
+{% block 'navbar' %}
+  {% include 'navbar.html' %}
+ {% endblock %}
+
+{% block title %}
+  Update Home Feature
+ {% endblock title %}
+
+
+{% block 'body' %}
+<h1>Update Home Feature</h1>
+<form method="post" enctype="multipart/form-data">
+
+    {{form.as_p}}
+
+                {% csrf_token %}
+
+        <button type="submit" class="btn btn-primary">Update</button>
+                   <a href="{% url 'view_home_feature' %}" class="btn btn-danger">Delete</a>
+
+</form>
+{% endblock %}

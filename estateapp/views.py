@@ -26,6 +26,9 @@ class Dashboard(LoginRequiredMixin,TemplateView):
     # If the user not login then redirect to down url
     login_url='/login'
 
+
+
+
 # For the Login Authentication
 class Login(TemplateView):
     # model = Home
@@ -50,6 +53,9 @@ class Login(TemplateView):
             return redirect('login')
 
 
+
+
+
 class AddHomeFeature(LoginRequiredMixin,TemplateView):
     # model = Home
     context_object_name = 'add_home_feature'
@@ -71,8 +77,11 @@ class AddHomeFeature(LoginRequiredMixin,TemplateView):
             messages.add_message(request, messages.SUCCESS, "Saved Successfully")
             return redirect('dashboard')
         else:
-            messages.add_message(request, messages.ERROR, "Sooryy error occured")
+            messages.add_message(request, messages.ERROR, "Sorry error occured")
             return redirect('dashboard')
+
+
+
 
 class ViewHomeFeature(LoginRequiredMixin,TemplateView):
     context_object_name = 'view_home_feature'
@@ -85,11 +94,25 @@ class ViewHomeFeature(LoginRequiredMixin,TemplateView):
         }
         return render(request, self.template_name, context)
 
+def EditHomeFeature(request,id):
+    data = HomeFeaturesModel.objects.get(pk=id)
+    form = HomeFeaturesForm(request.POST or None, instance=data)
+    if form.is_valid():
+        form.save()
+        messages.add_message(request, messages.SUCCESS, "Updated Successfully")
+        return redirect('view_home_feature')
+    context = {
+        'form': form
+    }
+    return render(request, 'estateapp/edit_home_feature.html', context)
+
 def DeleteHomeFeature(request,id):
     d=HomeFeaturesModel.objects.get(pk=id)
     d.delete()
     messages.add_message(request, messages.SUCCESS, "Successfully Deleted")
     return redirect('view_home_feature')
+
+
 
 class AddHomeDetail(LoginRequiredMixin,TemplateView):
     # model = Home
